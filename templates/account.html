@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bg: #0b0b0d;
+            --glass-bg: rgba(28, 28, 34, 0.5);
+            --accent: #ff3c3c;
+            --accent-glow: rgba(255, 60, 60, 0.6);
+            --text: #f4f4f4;
+            --subtle: #999;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: radial-gradient(circle at top left, #1f1f27, #0b0b0d);
+        }
+
+        .account-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 18px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            width: 320px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .info {
+        margin-bottom: 1.2rem;
+        text-align: left;
+        }
+
+        .info label {
+        font-size: 0.75rem;
+        color: var(--subtle);
+        display: block;
+        margin-bottom: 0.2rem;
+        }
+
+        .info .value,
+        .info input {
+        font-size: 1rem;
+        color: var(--text);
+        word-break: break-word;
+        }
+
+        .info input {
+        width: 100%;
+        padding: 0.4rem 0.6rem;
+        border: 1px solid var(--subtle);
+        border-radius: 0.4rem;
+        background-color: var(--background);
+}
+
+        .delete-form {
+            margin-top: 2rem;
+        }
+
+        .delete-button {
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 8px var(--accent-glow), 0 0 20px var(--accent-glow);
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+
+        .delete-button:hover {
+            box-shadow: 0 0 10px var(--accent), 0 0 25px var(--accent), 0 0 40px var(--accent);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="account-card">
+        <h1>Your Account</h1>
+
+        <div class="info info_usr">
+            <label>Username</label>
+            <div class="value" id="username">{{ username }}</div>
+          </div>
+          
+          <div class="info info_pwd">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <div class="delete-form">
+            <button id="delete-button" class="delete-button" type="submit">Delete Account </button>
+        </div>
+    </div>
+    <p id="fail"></p>
+</body>
+<script src="../static/account_page/main.js" type="module"></script>
+</html>

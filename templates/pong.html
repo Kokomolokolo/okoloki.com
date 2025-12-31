@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="/static/Pong/pong.css">
+    <style>
+        #canvas {
+            margin: 0px;
+            background-color: black;
+            position: absolute;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong</title>
+</head>
+{% include 'navbar.html' %}
+
+<body>
+    <!-- <nav>
+        <div class="topicons">
+            <a class="usericon"><img src="{{ url_for('static', filename='textures/usericon.png') }}" alt="USERERROR" style="width: 50px; height: 50px;"></a>
+                <div class="dropdown">
+                <a onclick="alert('Working on it!')">Account</a>
+                <a href="/login_site">Login</a>
+            </div>
+            <a href="/" class="homeicon"><img src="{{ url_for('static', filename='textures/house.png') }}" alt="HOME" style="width: 50px; height: 50px;"></a>
+        </div>
+    </nav> -->
+    <h1>PONG</h1>
+    <div class="canvas">
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+    <script src="/static/Pong/pong.js"></script>
+</html>

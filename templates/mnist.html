@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST Number Recognizer</title>
+    <link rel="stylesheet" href="../static/mnist_numbers/mnist.css">
+</head>
+{% include 'navbar.html' %}
+<body>
+<h1>Recognize handwritten digits</h1>
+<h2>Draw below here</h2>
+<canvas id="num_canvas" width="280" height="280"></canvas>
+
+<canvas id="tmpCanvas" width="28" height="28" style="display: none;"></canvas>
+
+<div id="result-container">
+    <h2>Your number: <span id="prediction-output">?</span></h2>
+    <p>Confidence: <strong id="confidence-output">-%</strong></p>
+</div>
+
+<button onclick="clear_canvas()">Clear Canvas</button>
+</body>
+<script src="../static/mnist_numbers/mnist.js"></script>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Planet Simulation</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    canvas {
+      max-width: 100%;
+      width: 800px;
+      height: 600px;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background: white;
+    }
+    p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #555;
+    }
+    .wrap {
+      display: grid;
+      gap: 24px;
+      margin-top: 3rem;
+      justify-content: center;
+    }
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px;
+      background: white;
+    }
+    .btn {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .btn button {
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: all 0.2s ease-in-out;
+    }
+    .btn button:hover {
+      background-color: #4338ca;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .btn button:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Planet Simulation</h1>
+  {% include 'navbar.html' %}
+  <div class="wrap">
+    <canvas id="glcanvas" tabindex="1"></canvas>
+  </div>
+  <p>A planet simulation made with <strong>Macroquad</strong> (WASM).</p>
+  <p>A desktop version is available <a href="https://github.com/Lenni707/planet_sim_V2"> here</a>.</p>
+
+  <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
+  <script>
+    load("../static/planet_sim/planet_sim_V2.wasm");
+  </script>
+</body>
+</html>

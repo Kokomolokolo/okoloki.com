@@ -1,0 +1,83 @@
+:root {
+    /*--body-bg: linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(6,6,89,1) 55%, rgba(9,9,121,1) 71%, rgba(255,255,255,1) 100%); */
+    --body-bg: #123;
+    --nav-bg: rgb(69, 92, 115)
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: system-ui;
+}
+
+ul{
+    margin: 0;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--nav-bg);
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.navbar.show {
+    left: 0;
+}
+
+nav {
+    height: 100%;
+    position: sticky;
+    top: 0;
+    max-height: 100svh;
+    background-color: var(--nav-bg);
+}
+
+.navlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    gap: 2rem;
+    padding-block: 2rem;
+    font-size: 1rem;
+}
+
+.navlist li {
+    background: var(--nav-bg);
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+    border-radius: 100vw 0 0 100vw;
+
+}
+
+.navlist li.active {
+    background: var(--body-bg);
+}
+
+.navlist a {
+    color: white;
+    text-decoration: none;
+}
+
+#toggleNav {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: var(--nav-bg);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+#toggleNav:hover {
+    background: #555;
+}

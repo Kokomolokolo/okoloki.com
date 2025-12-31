@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Errors of the Office</title>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #fafafa; color: #333; margin: 0; padding: 2rem; }
+    h1 { margin-bottom: 1rem; }
+    iframe { max-width: 100%; width: 1152px; height: 648px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: white; }
+    p { margin-top: 1rem; font-size: 1rem; color: #555; }
+    .wrap { display: grid; gap: 24px; margin-top: 3rem; }
+    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: white; }
+    canvas { max-width: 100%; }
+    table.dataTable thead th { white-space: nowrap; }
+    .btn { margin-top: 24px; /* Abstand nach oben */ display: flex; justify-content: center; /* Button zentrieren, falls gewünscht */ }
+    .btn button { background-color: #4f46e5; /* ein schönes Blauviolett */ color: white; border: none; border-radius: 8px; padding: 12px 24px; font-size: 1rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.15); transition: all 0.2s ease-in-out; }
+    .btn button:hover { background-color: #4338ca; /* etwas dunkler beim Hover */ transform: translateY(-2px); /* leichter Hover-Effekt */ box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+    .btn button:active { transform: translateY(0); box-shadow: 0 3px 6px rgba(0,0,0,0.2);}
+
+  </style>
+</head>
+<body>
+  <h1>The Errors of the Office</h1>
+  {% include 'navbar.html' %}
+  <iframe src="../static/errorsoftheoffice/index.html" style="border:none;" width="1152" height="648"></iframe>
+  <p>A game made for the "Patch Notes" Game Jam in 2 days.</p>
+
+  
+  <h2>Leaderboard</h2>
+  <div class="wrap">
+    <div class="card">
+      <table id="scoresTable">
+        <thead>
+          <tr>
+            <th data-sort="rank">Rank</th>
+            <th data-sort="username">Username</th>
+            <th data-sort="survival_time">Survival Time</th>
+            <th data-sort="created_at">Played at</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="btn">
+    <button onclick="init()" style="width: 50%; height: 20%;">Reload Leaderboard</button>
+  </div>
+
+  <!-- Game script -->
+  <script src="../static/errorsoftheoffice/index.js"></script>
+  
+  <script>
+    function formatDuration(seconds) {
+      if (seconds == null || isNaN(seconds)) return "";
+      const s = Math.floor(Number(seconds));
+      const m = Math.floor(s / 60);
+      const r = s % 60;
+      return `${m}:${r.toString().padStart(2, "0")}`;
+    }
+
+    function formatDate(iso) {
+      if (!iso) return "";
+      const d = new Date(iso);
+      return d.toLocaleString();
+    }
+
+    async function loadData() {
+      const resp = await fetch("/get_scores", { cache: "no-store" });
+      const data = await resp.json().catch(() => []);
+      return Array.isArray(data) ? data : [];
+    }
+
+    function buildTable(rows) {
+      const tbody = document.querySelector("#scoresTable tbody");
+      tbody.innerHTML = "";
+      rows.forEach((row, idx) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${idx + 1}</td>
+          <td>${row.username ?? ""}</td>
+          <td>${formatDuration(row.survival_time)}</td>
+          <td>${formatDate(row.created_at)}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    let currentData = [];
+
+    async function init() {
+      currentData = await loadData();
+      currentData.sort((a, b) => (b.survival_time ?? 0) - (a.survival_time ?? 0));
+      buildTable(currentData);
+    }
+
+    init();
+    setInterval(init, 60000);
+  </script>
+</body>
+</html>

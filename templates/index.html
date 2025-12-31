@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okoloki</title>
+    <h1>An Okoloki test site!</h1>
+    <style>
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="text" id="password" placeholder="password" required>
+    <button onclick="postData()"></button>
+
+    <input type="text" id="delete" placeholder="delete" required>
+    <button onclick="deleteData()"></button>
+
+    <input type="text" id="username_login" placeholder="Username" required>
+    <input type="text" id="password_login" placeholder="Password" required>
+    <button onclick="loginUser()">Login</button>
+
+</body>
+<script src="static/postgres_debug/script.js" type="module"></script>
+</html>

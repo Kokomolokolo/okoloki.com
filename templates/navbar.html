@@ -1,0 +1,82 @@
+<style>
+body {
+  padding-top: 30px; /* Platz für Navbar */
+  margin: 0;
+}
+
+/* Navbar Container */
+.topicons {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between; /* Home links, User rechts */
+  align-items: center;
+  padding: 0 45px;
+}
+
+/* Icon Links */
+.topicons a {
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.topicons img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Dropdown Menü */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 70px;       /* etwas unterhalb vom Icon */
+  right: 10px;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.dropdown a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Dropdown beim Hover anzeigen
+.usericon:hover + .dropdown,
+.dropdown:hover {
+  display: block;
+} */
+</style>
+
+<nav>
+  <div class="topicons">
+    <a href="/" class="homeicon">
+      <img src="{{ url_for('static', filename='textures/house.png') }}" alt="HOME">
+    </a>
+
+    <div style="position: relative;">
+      <a class="usericon">
+        <img src="{{ url_for('static', filename='textures/usericon.png') }}" alt="USERERROR">
+      </a>
+      <div class="dropdown">
+        <a href="/account">Account</a>
+        {% if user %}
+        <a id="loginUserButton" href="/logout">Logout</a>
+        {% else %}
+        <a id="loginUserButton" href="/login_site">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

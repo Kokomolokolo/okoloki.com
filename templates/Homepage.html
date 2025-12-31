@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <link rel="icon" href="../textures/favicon.png" type="image/png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All okoloki with you?</title>
+        <link rel="stylesheet" href="../static/Homepage/design.css">
+    </head>
+    <body>
+        <div class="greeting">{% if username %}
+            <h1>Welcome, {{ username }}!</h1>
+        {% endif %}
+        </div>
+        {% include 'navbar.html' %}
+        <main>
+        <div class="headers">
+            <h1>OKOLOKI.COM</h1>
+            <h2>Not the village</h2>
+        </div>
+        <div class="searchbar">
+            <input type="text" placeholder="Search for a programm">
+        </div>
+        <div class="button-container">
+            <input type="button" name="" id="office" onclick="window.location.href='/login-warn'"></input>
+            <input type="button"  id="pong" onclick="window.location.href='/Pong'"></input>
+            <input type="button" name="" id="mnist" onclick="window.location.href='/mnist'"></input>
+            <input type="button" name="" id="game_of_life" onclick="window.location.href='/game_of_life'"></input> 
+            <input id="voxxel_engine" type="button" onclick="window.location.href='/voxxel_engine'" ></input>
+            <input id="winter_game" type="button" onclick="window.location.href='/winter_game'" ></input>
+            <input id="partical_sim" type="button" onclick="window.location.href='/particalsim_3d'" ></input>
+            <input type="button" id="boid_sim" onclick="window.location.href='/boid_sim'"></input>
+            <input type="button" id="soccer_surfer" onclick="window.location.href='/soccer_surfer'"></input>
+            <input type="button" name="" id="planet_sim" onclick="window.location.href='/planet_sim'"></input> 
+            <input id="falling_sand" type="button" onclick="window.location.href='/falling_sand'" ></input>
+            <input type="button" name="" id="cat_memory" onclick="window.location.href='/Catmemory'"></input>
+            <input id="blackjack" type="button" onclick="window.location.href='/Blackjack'" ></input>
+            <input type="button" name="" id="encrypter" onclick="window.location.href='/Encrypter'"></input>
+            <input type="button" id="imposter" onclick="window.location.href='/Imposter'"></input>
+	        <input type="button" name="" id="coming_soon" onclick="alert('COMING SOON!!')"></input>            
+        </div>
+        
+        </main>
+        <script  src="../static/Homepage/main.js"></script>
+    </body>
+</html>
+<!-- 

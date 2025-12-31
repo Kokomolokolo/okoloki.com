@@ -1,0 +1,3 @@
+alle datein mit gamejam sind datein von gdot, index.html ebenfalls, muss umbenannt werden wegen zu faul - maybe aber auch nicht mehr
+
+index.js ist die datei die die datenbank machen

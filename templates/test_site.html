@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTSITE</title>
+</head>
+<style>
+    h1{
+        font-size: 3vb;
+        display: flex;
+        justify-content: center;
+    }
+    button {
+        background-color: green;
+    }
+</style>
+<body>
+    <h1>An Okoloki test site!</h1>
+    <div id="data">
+        <form onsubmit="postToDB(event)">
+            <input name="username" type="text" placeholder="username">
+            <input name="password" type="text" placeholder="password">
+            <button type="submit">Add User</button>
+        </form>
+        <form onsubmit="deleteData(event)">
+            <input name="username" type="text" placeholder="username">
+            <input name="password" type="text" placeholder="password">
+            <button type="submit">Delete User</button>
+        </form>
+    </div>
+    
+</body>
+<script src="../static/test_site.js"></script>
+</html>

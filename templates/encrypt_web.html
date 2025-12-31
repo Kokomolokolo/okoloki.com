@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<header>
+    <div>Encrypte oder Decrypte</div>
+</header>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #92a8e5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 2.5rem; /* Increased base font size to 250% */
+}
+
+header {
+    color: #fff;
+    padding: 4.5rem; /* Padding stays the same */
+    width: 100%;
+    text-align: center;
+    position: fixed; /* Keeps the header fixed at the top */
+    top: 0; /* Ensures it's aligned to the top */
+    z-index: 1000; /* Keeps it above other content */
+}
+
+div {
+    font-weight: bold;
+    font-size: 5rem; /* Increased font size */
+}
+
+/* Form container */
+input, select {
+    margin: 1.25rem 0; /* Increased margin */
+    padding: 1.25rem; /* Increased padding */
+    font-size: 2.5rem; /* Increased font size */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 55px); /* Adjusted width */
+    max-width: 750px; /* Increased maximum width */
+}
+
+input[type="button"] {
+    background-color: #4b76ed;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem; /* Increased font size */
+    padding: 1.5rem; /* Increased padding */
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #1b38d9;
+}
+
+p {
+    font-size: 2.5rem; /* Increased font size */
+    margin: 1.25rem 0; /* Increased margin */
+    padding: 0;
+    word-wrap: break-word;
+}
+
+#output_encrypt, #output_decrypt, #output_decrypt_all {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 2.5rem; /* Increased font size */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 2rem; /* Adjusted padding */
+    }
+
+    header {
+        font-size: 3rem; /* Reduced font size for small screens */
+    }
+
+    input, select {
+        width: calc(100% - 40px); /* Adjusted width */
+    }
+}
+</style>
+{% include 'navbar.html' %}
+
+<body>
+    <input type="text" id="encrypt" placeholder="Enter a text to encrypt"></input>
+    <select id="shift">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+    </select>
+    <input type="button" value="Encrypt" onclick="encryptStart()"></input>
+    <p id="output_encrypt"></p>
+    <input type="text" id="decrypt" placeholder="Enter a text to decrypt"></input>
+    <input type="button" value="Decrypt" onclick="decryptStart()"></input>
+    <p id="output_decrypt"></p>
+    <p id="output_decrypt_all"></p>
+    <script  src="/static/encrypter/encrypt_web.js" type="module" defer></script>
+</body>

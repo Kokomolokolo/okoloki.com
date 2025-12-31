@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Image Viewer</title>
+    <style>
+        button {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            font-size: 27px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 7.5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e68900;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+            gap: 15px;
+            padding: 30px;
+            max-width: 1800px;
+            margin: auto;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 150%;
+        }
+
+        h1 {
+            color: #ff9800;
+            font-size: 3em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Cat Memory</h1>
+    <button onclick="fetchImage()">New Game</button>
+    <div id="image-container" class="image-grid"></div>
+    <script src="static/cat_memory/main.js"></script>
+</body>
+</html>

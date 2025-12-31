@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="../static/BlackjackRemastered/bjr.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+{% include 'navbar.html' %}
+
+<body>
+    <h1>Blackjack - Remake</h1>
+    <div id="gameStatus">
+        <p id="playerStatus"></p>
+        <p id="playerCounter"></p>
+        <p id="dealerStatus"></p>
+        <p id="dealerCounter"></p>
+        <p id="gameResult"></p>
+    </div>
+    <div id="controll">
+        <input type="button" id="hitID" value="Hit" onclick="listenForInputs('hit')">
+        <input type="button" id="standID" value="Stand" onclick="listenForInputs('stand')">
+        <input type="button" id="splitID" value="Split" onclick="listenForInputs('split')">
+        <!-- <input type="button" id="animateID" value="animate" onclick="animateCardsToOperator('dealer')"> -->
+    </div>
+    <div id="gameControlls">
+        <input type="button" id="resetButton" value="Start new Game" onclick="gameStart(true)">
+    </div>
+
+    <div id="deck"></div>
+    <img src="{{ url_for('static', filename='textures/imagescards/back_light.png') }}" alt="error" id="movingCard">
+    <div id="playerCarsID"></div>
+    <div id="dealerCardsID"></div>
+    <script>
+        // Flask gibt die Basis-URL mit, die im JavaScript verwendet wird
+        const imageBaseUrl = "{{ url_for('static', filename='textures/imagescards/') }}";
+    </script>
+    <script src="../static/BlackjackRemastered/blackjackRemake.js   "></script>
+</body>
+</html>

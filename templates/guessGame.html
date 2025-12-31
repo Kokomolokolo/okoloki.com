@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiktok guessing game</title>
+    <link rel="stylesheet" href="../static/imposterGame/guessGame.css">
+</head>
+{% include 'navbar.html' %}
+<body>
+    <input type="text" placeholder="Enter Player Count" id="numPlayers">
+    <button onclick="playerNumbers()">Click to start</button>
+    <br>
+    <div id="ingame">
+        <button onclick="main()">Click for next Person</button>
+        <p id="topicsOutput"></p>
+    </div>
+</body>
+<script src="../static/imposterGame/guessGame.js"></script>
+</html>
+
+
+<!-- 
+Also in der Theorie ist es das die Wörter sind es halt noch nicht wirklich aber idk.
+Ich würde maybe sogar ein Feature für neue Wörter machen aber müssen wir mal schauen. Ich habs erstmal auf dem Server
+-->

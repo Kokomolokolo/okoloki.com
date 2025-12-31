@@ -1,0 +1,16 @@
+Activate Venv:
+source venv/bin/activate
+
+Start gunicorn:
+gunicorn --bind 0.0.0.0:8000 app:app --daemon
+
+Stop gunicorn:
+pkill gunicorn
+/
+ps aux | grep gunicorn
+sudo kill <PID>
+
+Nginx files:
+/etc/nginx/(sites_available)/nginx.conf
+
+

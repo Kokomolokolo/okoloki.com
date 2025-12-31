@@ -1,0 +1,153 @@
+:root {
+    /*--body-bg2: linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(6,6,89,1) 55%, rgba(9,9,121,1) 71%, rgba(255,255,255,1) 100%); */
+    --body-bg: white;
+    --nav-bg: rgb(69, 92, 115)
+}
+body {
+    min-height: 100vh; 
+    margin: 0;
+    top: 0;
+    font-size: 1.25rem;
+    color: white;
+    background: var(--body-bg);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: system-ui;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers .headers horizontally */
+}
+.greeting {
+    display: flex;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 0 0 0;
+    font-family: Comic;
+
+}
+.headers {
+    display: inline-block; /* Shrinks to fit content */
+    text-align: center;
+    padding: 2vh 0 0 0;
+}
+
+.headers h1, h2 {
+    text-align: center; 
+    display: block;
+    color: black;
+    justify-content: center;
+    font-size: 6vh;
+    font-family: Comic;
+    margin: 0;
+}
+h2 {
+    font-size: 3vh;
+}
+
+.searchbar {
+    padding: 3vh 0 2vh 0;
+}
+.searchbar input{
+    display: flex;
+    width: 50ch;
+    height: 6vh;
+    border-radius: 3vw;
+    text-align: center;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;              
+}
+.button-container input {
+    width: 60vw;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background-size: contain;
+    border-radius: 15px;
+    margin: 10px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.button-container input:hover{
+    animation: flash 0.5s forwards;
+}
+
+#blackjack {
+    background-image: url('/static/textures/blackjack_title.png');
+}
+
+#pong {
+    background-image: url('/static/textures/pong_title.png');
+}
+
+#encrypter {
+    background-image: url('/static/textures/encrypter_title.png');
+}
+
+#coming_soon {
+    background-image: url('/static/textures/coming_sooon.png');
+}
+
+#imposter {
+    background-image: url('/static/textures/imposter_game_title.png');
+}
+
+#cat_memory {
+    background-image: url('/static/textures/cat_memory_title.png');
+}
+#office {
+     background-image: url('/static/textures/office.png');   
+}
+#partical_sim {
+    background-image: url('/static/textures/balls.png')
+}
+#mnist {
+    background-image: url('/static/textures/mnist.png')
+}
+#falling_sand {
+    background-image: url('/static/textures/falling_sand.png')
+}
+#planet_sim {
+    background-image: url('/static/textures/planet_sim.png')
+}
+#game_of_life {
+    background-image: url('/static/textures/game_of_life_title.png')
+}
+#boid_sim {
+    background-image: url('/static/textures/boid_swarm_sim.png')
+}
+#voxxel_engine {
+    background-image: url('/static/textures/voxxel.png')
+}
+#winter_game {
+    background-image: url('/static/textures/bevy_winter.png');
+}
+#winter_game {
+    background-image: url('/static/textures/bevy_winter.png');
+}
+
+
+@keyframes flash {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+
+
+.flash-anim {
+    animation: flash 0.5s;
+}

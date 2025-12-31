@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okoloki</title>
+    <link rel="stylesheet" href="../static/Register/register.css"></head>
+<body>
+    <div class="container">
+        <form action="">
+            <h1>Register</h1>
+            <div class="inputBox">
+                <input type="text" placeholder="Username" id="uname" required>
+            </div>
+            <div class="inputBox">
+                <input type="password" placeholder="Password" id="psw" required>
+                <div class="showPassword">
+                    <button type="button" class="smallbtn" id="showpsw">Show Password</button>
+                </div>
+            </div>
+            <!-- <div class="remerberForgot">
+                <label><input type="checkbox" id="remMe">Remember me</label>
+                <a href="#">Forgot Password</a>
+            </div> -->
+             <div class="failedLogin">
+                <p id="fail"></p> <!--Output in js über .innerhtml-->
+            </div>
+            <button type="button" class="btn" id="registerButton">Register</button>
+           
+            <div class="registerLink">
+                <p>Already have an account?<a href="/login_site"> Click here!</a></p>
+            </div>
+        </form>
+    </div>
+<script src="../static/Register/register.js" type="module"></script>
+</html>

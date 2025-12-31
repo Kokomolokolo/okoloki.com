@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Splash Screen</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white; /* Hintergrund ist jetzt weiß */
+      font-family: Arial, sans-serif;
+    }
+
+    .splash-container {
+      text-align: center;
+      padding: 40px;
+      border-radius: 12px;
+      border: 2px solid #ddd; /* dezenter Rahmen */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      max-width: 400px;
+      background: white;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 2rem;
+      color: #222;
+    }
+
+    p {
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .btn {
+      background: #4facfe;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #00c6ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="splash-container">
+    <h1>Waring!</h1>
+    <p>For your times to be posted on the leaderboard, please log in.</p>
+    <div class="button-group">
+      <a href="/login_site" class="btn">Login</a>
+      <a href="/office" class="btn">Continue without login in</a>
+    </div>
+  </div>
+</body>
+<script>
+async function check_login() {
+  try {
+    const response = await fetch("/check_login", {
+      method: "GET",
+      credentials: "include"  // wichtig, damit Cookies mitgeschickt werden
+    });
+    const data = await response.json()
+    console.log(data.logged_in)
+    if (data.logged_in){
+      console.log("hsadlf")
+      window.location.href = "/office";
+    }
+    else {
+      console.log("User not logged in")
+    }
+  } catch (err) {
+    console.log("Fehler :(", err)
+  }
+}
+window.onload = check_login;
+</script>
+</html>
