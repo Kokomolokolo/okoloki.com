@@ -1,2 +1,1 @@
-- catmemory geht nicht weil executable für rocket server komisch
-- ka warum aber die linux .service datei geht nicht deswegen gehtr systemtl nicht ka
+
