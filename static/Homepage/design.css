@@ -133,8 +133,8 @@ h2 {
 #winter_game {
     background-image: url('/static/textures/bevy_winter.png');
 }
-#winter_game {
-    background-image: url('/static/textures/bevy_winter.png');
+#soccer_surfer {
+    background-image: url('/assets/starting_field.png');
 }
 
 
