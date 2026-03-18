@@ -201,6 +201,10 @@ def bevy_winter():
 def soccer_surfer():
     return render_with_name('soccer_surfer.html')
 
+@app.route('/p2p_demo')
+def p2p_demo():
+    return render_with_name('p2p_demo.html')
+
 @app.route('/session_info')
 def session_info():
     session_cookie = request.cookies.get('session')
@@ -214,7 +218,10 @@ def serve_assets(filename):
 # Route für WASM/JS (die müssen im static/ Ordner liegen)
 @app.route('/static/<path:filename>')
 def serve_static(filename):
-    return send_from_directory('static', filename)
+    response = send_from_directory('static', filename)
+    if filename.endswith('.wasm'):
+        response.headers['Content-Type'] = 'application/wasm'
+    return response
 
 # create table
 @app.route('/create_table', methods=['GET'])
