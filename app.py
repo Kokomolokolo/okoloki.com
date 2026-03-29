@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, render_template, session, make_response, redirect, url_for, abort, send_from_directory, Response
+from urllib.parse import urlparse
 import psycopg2
 import requests
 from flask_cors import CORS, cross_origin
@@ -233,15 +234,19 @@ def serve_static(filename):
 def pfp():
     url = request.args.get("url")
 
-    # check if url is valid and not a virus
-    if not url or "tiktokcdn.com" not in url:
+    # Validate URL
+    parsed = urlparse(url)
+    allowed = (".tiktokcdn.com", ".tiktokcdn-eu.com")
+    if not url or not parsed.hostname or not any(parsed.hostname.endswith(d) for d in allowed):
         return "Invalid URL", 400
 
     try:
-        r = requests.get(url, headers={
-            "User-Agent": "Mozilla/5.0"
-        }, timeout=5)
-
+        r = requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=5,
+            allow_redirects=False
+        )
         return Response(
             r.content,
             content_type=r.headers.get("Content-Type", "image/jpeg")
