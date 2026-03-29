@@ -1,0 +1,31 @@
+<svg width="256" height="128" viewBox="0 0 128 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cyan shadow -->
+  <g fill="#6FE7E7" opacity="0.7">
+    <!-- Left T -->
+    <rect x="26" y="18" width="24" height="8"></rect>
+    <rect x="34" y="18" width="8" height="36"></rect>
+    <!-- Right T -->
+    <rect x="54" y="18" width="24" height="8"></rect>
+    <rect x="62" y="18" width="8" height="36"></rect>
+  </g>
+
+  <!-- Red shadow -->
+  <g fill="#FF2A5F" opacity="0.7">
+    <!-- Left T -->
+    <rect x="30" y="14" width="24" height="8"></rect>
+    <rect x="38" y="14" width="8" height="36"></rect>
+    <!-- Right T -->
+    <rect x="58" y="14" width="24" height="8"></rect>
+    <rect x="66" y="14" width="8" height="36"></rect>
+  </g>
+
+  <!-- Main white Ts -->
+  <g fill="#FFFFFF">
+    <!-- Left T -->
+    <rect x="28" y="16" width="24" height="8"></rect>
+    <rect x="36" y="16" width="8" height="36"></rect>
+    <!-- Right T (small gap) -->
+    <rect x="56" y="16" width="24" height="8"></rect>
+    <rect x="64" y="16" width="8" height="36"></rect>
+  </g>
+</svg>

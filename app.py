@@ -1,5 +1,6 @@
-from flask import Flask, jsonify, request, render_template, session, make_response, redirect, url_for, abort, send_from_directory
+from flask import Flask, jsonify, request, render_template, session, make_response, redirect, url_for, abort, send_from_directory, Response
 import psycopg2
+import requests
 from flask_cors import CORS, cross_origin
 from flask_session import Session
 
@@ -205,6 +206,10 @@ def soccer_surfer():
 def p2p_demo():
     return render_with_name('p2p_demo.html')
 
+@app.route('/tiktok_wrapped')
+def tiktok_wrapped():
+    return render_with_name('tiktok_wrapped.html')
+
 @app.route('/session_info')
 def session_info():
     session_cookie = request.cookies.get('session')
@@ -222,6 +227,27 @@ def serve_static(filename):
     if filename.endswith('.wasm'):
         response.headers['Content-Type'] = 'application/wasm'
     return response
+
+# used for tiktok wrapped to fetch the profile picture
+@app.route("/tiktok_pfp")
+def pfp():
+    url = request.args.get("url")
+
+    # check if url is valid and not a virus
+    if not url or "tiktokcdn.com" not in url:
+        return "Invalid URL", 400
+
+    try:
+        r = requests.get(url, headers={
+            "User-Agent": "Mozilla/5.0"
+        }, timeout=5)
+
+        return Response(
+            r.content,
+            content_type=r.headers.get("Content-Type", "image/jpeg")
+        )
+    except Exception:
+        return "Failed to fetch image", 500
 
 # create table
 @app.route('/create_table', methods=['GET'])
