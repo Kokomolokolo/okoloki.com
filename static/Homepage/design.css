@@ -136,6 +136,9 @@ h2 {
 #soccer_surfer {
     background-image: url('/assets/starting_field.png');
 }
+#tiktok_wrapped {
+    background-image: url('/assets/tiktok_wrapped.jpg');
+}
 
 
 @keyframes flash {
