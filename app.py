@@ -1,16 +1,16 @@
 from flask import Flask, jsonify, request, render_template, session, make_response, redirect, url_for, abort, send_from_directory, Response
 from urllib.parse import urlparse
-import psycopg2
+#import psycopg2
 import requests
 from flask_cors import CORS, cross_origin
 from flask_session import Session
 
 # to hide specific keys in a .env file
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 
 # loads the .env file
-load_dotenv("keys.env")
+#load_dotenv("keys.env")
 
 app = Flask(__name__, template_folder='templates')
 
