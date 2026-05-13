@@ -211,6 +211,10 @@ def p2p_demo():
 def tiktok_wrapped():
     return render_with_name('tiktok_wrapped.html')
 
+@app.route('/minesweeper')
+def minesweeper():
+    return render_with_name('minesweeper.html')
+
 @app.route('/session_info')
 def session_info():
     session_cookie = request.cookies.get('session')
