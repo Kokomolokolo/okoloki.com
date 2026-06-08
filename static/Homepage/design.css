@@ -139,6 +139,9 @@ h2 {
 #tiktok_wrapped {
     background-image: url('/static/textures/tiktok_wrapped.png');
 }
+#minesweeper {
+    /* background-image: url('/static/textures/tiktok_wrapped.png'); */
+}
 
 
 @keyframes flash {
