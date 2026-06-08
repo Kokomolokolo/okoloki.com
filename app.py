@@ -212,7 +212,7 @@ def tiktok_wrapped():
     return render_with_name('tiktok_wrapped.html')
 
 @app.route('/minesweeper')
-def tiktok_wrapped():
+def minesweeper():
     return render_with_name('minesweeper/minesweeper.html')
 
 @app.route('/session_info')
