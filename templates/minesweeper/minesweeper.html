@@ -48,6 +48,11 @@
       background: #27272a;
       display: block;
       margin: 0 auto;
+
+      /* Force the layout bounding box to look like 600x680 logical pixels */
+      width: 600px;
+      height: 680px;
+      max-width: 100%; /* Keeps it responsive on small mobile screens */
     }
     p {
       margin-top: 1.5rem;
