@@ -144,5 +144,12 @@
 
   <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
   <script>load("../static/minesweeper/minesweeper.wasm");</script>
+
+  <!-- This prevents the context menu popup specifically on the game canvas -->
+  <script>
+    document.getElementById('glcanvas').addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+  </script>
 </body>
 </html>
