@@ -148,7 +148,36 @@
   </div>
 
   <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
-  <script>load("../static/minesweeper/minesweeper.wasm");</script>
+  <script>
+    // 1. Load the WebAssembly binary normally
+    load("../static/minesweeper/minesweeper.wasm");
+
+    // 2. Intercept and patch Macroquad's mouse tracking for High-DPI screens
+    const canvas = document.getElementById('glcanvas');
+    
+    // Prevent the right-click menu from breaking flag placements
+    canvas.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // This overrides the internal coordinate translation layer to account for browser scaling
+    const originalGetBoundingClientRect = canvas.getBoundingClientRect;
+    canvas.getBoundingClientRect = function() {
+      const rect = originalGetBoundingClientRect.call(this);
+      const dpr = window.devicePixelRatio || 1;
+      
+      // If the browser has a scaling factor (like 2x for Retina), 
+      // we fake a smaller bounding box so Macroquad multiplies it back to normal
+      return {
+        left: rect.left,
+        top: rect.top,
+        right: rect.left + (rect.width / dpr),
+        bottom: rect.top + (rect.height / dpr),
+        width: rect.width / dpr,
+        height: rect.height / dpr
+      };
+    };
+  </script>
 
   <!-- This prevents the context menu popup specifically on the game canvas -->
   <script>
