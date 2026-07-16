@@ -142,6 +142,9 @@ h2 {
 #minesweeper {
     background-image: url('/static/textures/okoloki_minesweeper.png');
 }
+#planets {
+    background-image: url('/static/textures/procedualPlanets.png');
+}
 
 
 @keyframes flash {
