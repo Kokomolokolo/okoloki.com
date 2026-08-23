@@ -145,6 +145,9 @@ h2 {
 #planets {
     background-image: url('/static/textures/procedualPlanets.png');
 }
+#dungeon {
+    background-image: url('/static/textures/dungeon.png');
+}
 
 
 @keyframes flash {
