@@ -219,6 +219,11 @@ def minesweeper():
 def planets():
     return render_with_name('procedual_planets.html')
 
+@app.route('/dungeon')
+def dungeon():
+    return render_with_name('dungeon.html')
+
+
 @app.route('/session_info')
 def session_info():
     session_cookie = request.cookies.get('session')
