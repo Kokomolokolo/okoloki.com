@@ -148,6 +148,9 @@ h2 {
 #dungeon {
     background-image: url('/static/textures/dungeon.png');
 }
+#soft_bodies {
+    background-image: url('/static/textures/soft_bodies.png');
+}
 
 
 @keyframes flash {
