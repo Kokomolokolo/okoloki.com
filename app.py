@@ -223,6 +223,9 @@ def planets():
 def dungeon():
     return render_with_name('dungeon.html')
 
+@app.route('/soft_bodies')
+def softies():
+    return render_with_name('soft_bodies.html')
 
 @app.route('/session_info')
 def session_info():
