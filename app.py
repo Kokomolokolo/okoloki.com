@@ -223,6 +223,10 @@ def planets():
 def dungeon():
     return render_with_name('dungeon.html')
 
+@app.route('/bevcraft')
+def bevcraft():
+    return render_with_name('bevcraft.html')
+
 @app.route('/soft_bodies')
 def softies():
     return render_with_name('soft_bodies.html')
